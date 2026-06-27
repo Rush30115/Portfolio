@@ -495,22 +495,28 @@
                     </div>
                     
                     <div class="contact-form-container">
-                        <form id="contact-form" class="contact-form" onsubmit="event.preventDefault(); alert('Message sent! Thanks for reaching out. (Demo form)');">
+                        <form action="https://formsubmit.co/rushankrk63@gmail.com" method="POST" id="contact-form" class="contact-form">
+                            <!-- Custom Redirect back to portfolio after submitting -->
+                            <input type="hidden" name="_next" value="https://rush30115.github.io/Portfolio/">
+                            
+                            <!-- Email subject prefix -->
+                            <input type="hidden" name="_subject" value="New Portfolio Contact Message!">
+                            
                             <div class="form-group">
                                 <label for="form-name">Name</label>
-                                <input type="text" id="form-name" placeholder="John Doe" required>
+                                <input type="text" name="name" id="form-name" placeholder="John Doe" required>
                             </div>
                             <div class="form-group">
                                 <label for="form-email">Email</label>
-                                <input type="email" id="form-email" placeholder="john@example.com" required>
+                                <input type="email" name="email" id="form-email" placeholder="john@example.com" required>
                             </div>
                             <div class="form-group">
                                 <label for="form-subject">Subject</label>
-                                <input type="text" id="form-subject" placeholder="Collaboration opportunity" required>
+                                <input type="text" name="subject" id="form-subject" placeholder="Collaboration opportunity" required>
                             </div>
                             <div class="form-group">
                                 <label for="form-message">Message</label>
-                                <textarea id="form-message" rows="5" placeholder="Let's build something awesome..." required></textarea>
+                                <textarea name="message" id="form-message" rows="5" placeholder="Let's build something awesome..." required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary btn-submit" id="btn-submit-id">Send Message</button>
                         </form>
