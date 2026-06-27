@@ -1,0 +1,9 @@
+# Ignore OneDrive screenshots copied locally
+screenshot_1.png
+screenshot_2.png
+screenshot_3.png
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
