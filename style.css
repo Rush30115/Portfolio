@@ -1353,6 +1353,10 @@ li {
     .education-timeline {
         order: 2;
     }
+
+    .scroll-indicator {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
