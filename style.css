@@ -1394,7 +1394,7 @@ li {
     .nav-links {
         position: fixed;
         top: 70px;
-        right: -100%;
+        right: 0;
         width: 100%;
         height: calc(100vh - 70px);
         background: rgba(3, 7, 18, 0.98);
@@ -1404,10 +1404,13 @@ li {
         gap: 3rem;
         transition: var(--transition-normal);
         z-index: 99;
+        transform: translateX(100%);
+        visibility: hidden;
     }
     
     .nav-links.active {
-        right: 0;
+        transform: translateX(0);
+        visibility: visible;
     }
     
     .menu-toggle {
