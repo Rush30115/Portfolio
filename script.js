@@ -1,257 +1,286 @@
-/* ==========================================================================
-   INTERACTIVE PARTICLES BACKGROUND
-   ========================================================================== */
-class ParticleNetwork {
-    constructor(canvasId) {
-        this.canvas = document.getElementById(canvasId);
-        if (!this.canvas) return;
-        
-        this.ctx = this.canvas.getContext('2d');
-        this.particles = [];
-        this.particleCount = 60;
-        this.connectionDistance = 120;
-        
-        this.mouse = {
-            x: null,
-            y: null,
-            radius: 150
-        };
-        
-        this.init();
-        this.animate();
-        this.setupEventListeners();
-    }
-    
-    init() {
-        this.resize();
-        this.particles = [];
-        
-        for (let i = 0; i < this.particleCount; i++) {
-            this.particles.push({
-                x: Math.random() * this.canvas.width,
-                y: Math.random() * this.canvas.height,
-                vx: (Math.random() - 0.5) * 0.4,
-                vy: (Math.random() - 0.5) * 0.4,
-                size: Math.random() * 2 + 1,
-                color: Math.random() > 0.5 ? '#00f2fe' : '#a855f7'
-            });
-        }
-    }
-    
-    resize() {
-        const dpr = window.devicePixelRatio || 1;
-        this.canvas.width = window.innerWidth * dpr;
-        this.canvas.height = window.innerHeight * dpr;
-        this.canvas.style.width = `${window.innerWidth}px`;
-        this.canvas.style.height = `${window.innerHeight}px`;
-        this.ctx.scale(dpr, dpr);
-        
-        // Adjust particle density based on screen size
-        if (window.innerWidth < 768) {
-            this.particleCount = 30;
-            this.connectionDistance = 80;
-        } else {
-            this.particleCount = 70;
-            this.connectionDistance = 130;
-        }
-    }
-    
-    setupEventListeners() {
-        window.addEventListener('resize', () => {
-            this.resize();
-            this.init();
-        });
-        
-        window.addEventListener('mousemove', (e) => {
-            this.mouse.x = e.clientX;
-            this.mouse.y = e.clientY;
-        });
-        
-        window.addEventListener('mouseleave', () => {
-            this.mouse.x = null;
-            this.mouse.y = null;
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Mobile Menu Toggle
+    const menuToggle = document.getElementById("menu-toggle-id");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+            
+            const bars = menuToggle.querySelectorAll(".bar");
+            bars[0].style.transform = navLinks.classList.contains("active") ? "rotate(-45deg) translate(-5px, 6px)" : "none";
+            bars[1].style.opacity = navLinks.classList.contains("active") ? "0" : "1";
+            bars[2].style.transform = navLinks.classList.contains("active") ? "rotate(45deg) translate(-5px, -6px)" : "none";
         });
     }
-    
-    drawParticles() {
-        for (let i = 0; i < this.particles.length; i++) {
-            const p = this.particles[i];
-            this.ctx.beginPath();
-            this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            this.ctx.fillStyle = p.color;
-            this.ctx.shadowBlur = 8;
-            this.ctx.shadowColor = p.color;
-            this.ctx.fill();
-            this.ctx.shadowBlur = 0; // Reset shadow for efficiency
+
+    // Close menu when clicked
+    document.querySelectorAll(".nav-link").forEach(link => {
+        link.addEventListener("click", () => {
+            if (navLinks && navLinks.classList.contains("active")) {
+                navLinks.classList.remove("active");
+                const bars = menuToggle.querySelectorAll(".bar");
+                bars[0].style.transform = "none";
+                bars[1].style.opacity = "1";
+                bars[2].style.transform = "none";
+            }
+        });
+    });
+
+    // 2. High-Tech Connection Nodes Canvas Simulation
+    const canvas = document.getElementById("ambient-canvas");
+    const ctx = canvas.getContext("2d");
+
+    let particles = [];
+    const particleCount = 40;
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    class Particle {
+        constructor() {
+            this.reset();
+        }
+
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.radius = Math.random() * 1.5 + 1;
+            this.speedX = Math.random() * 0.3 - 0.15;
+            this.speedY = Math.random() * 0.3 - 0.15;
+            this.alpha = Math.random() * 0.35 + 0.1;
+        }
+
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                this.reset();
+            }
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+            ctx.fill();
         }
     }
-    
-    updateParticles() {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
+
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        for (let i = 0; i < this.particles.length; i++) {
-            const p = this.particles[i];
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
             
-            p.x += p.vx;
-            p.y += p.vy;
-            
-            // Boundary collisions
-            if (p.x < 0 || p.x > width) p.vx *= -1;
-            if (p.y < 0 || p.y > height) p.vy *= -1;
-            
-            // Mouse interact
-            if (this.mouse.x !== null && this.mouse.y !== null) {
-                const dx = p.x - this.mouse.x;
-                const dy = p.y - this.mouse.y;
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 
-                if (dist < this.mouse.radius) {
-                    const force = (this.mouse.radius - dist) / this.mouse.radius;
-                    p.x += (dx / dist) * force * 1.5;
-                    p.y += (dy / dist) * force * 1.5;
+                if (dist < 120) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${0.08 * (1 - dist/120)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
                 }
             }
         }
+        requestAnimationFrame(animate);
     }
-    
-    drawConnections() {
-        const length = this.particles.length;
-        for (let i = 0; i < length; i++) {
-            const p1 = this.particles[i];
-            for (let j = i + 1; j < length; j++) {
-                const p2 = this.particles[j];
-                const dx = p1.x - p2.x;
-                const dy = p1.y - p2.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                
-                if (dist < this.connectionDistance) {
-                    const opacity = (1 - dist / this.connectionDistance) * 0.15;
-                    this.ctx.beginPath();
-                    this.ctx.moveTo(p1.x, p1.y);
-                    this.ctx.lineTo(p2.x, p2.y);
-                    // Use gradient between particle colors
-                    const grad = this.ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
-                    grad.addColorStop(0, this.hexToRgba(p1.color, opacity));
-                    grad.addColorStop(1, this.hexToRgba(p2.color, opacity));
-                    
-                    this.ctx.strokeStyle = grad;
-                    this.ctx.lineWidth = 0.8;
-                    this.ctx.stroke();
-                }
-            }
-        }
-    }
-    
-    hexToRgba(hex, alpha) {
-        const r = parseInt(hex.slice(1, 3), 16);
-        const g = parseInt(hex.slice(3, 5), 16);
-        const b = parseInt(hex.slice(5, 7), 16);
-        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-    }
-    
-    animate() {
-        this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-        this.updateParticles();
-        this.drawConnections();
-        this.drawParticles();
-        requestAnimationFrame(() => this.animate());
-    }
-}
+    animate();
 
-/* ==========================================================================
-   PAGE NAVIGATION & MOBILE MENU
-   ========================================================================== */
-function setupNavigation() {
-    const navbar = document.querySelector('.navbar');
-    const menuToggle = document.getElementById('menu-toggle-id');
-    const navLinksContainer = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section');
-    
-    // Scrolled Navbar style change
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-        
-        // Active section indicator
-        let currentSectionId = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 120;
-            const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                currentSectionId = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSectionId}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-    
-    // Toggle Mobile menu
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        navLinksContainer.classList.toggle('active');
-    });
-    
-    // Close menu when clicking nav link
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            navLinksContainer.classList.remove('active');
-        });
-    });
-}
+    // 3. Smooth scroll reveal observer
+    const glassCards = document.querySelectorAll(".glass-card");
+    const observerOptions = {
+        threshold: 0.08,
+        rootMargin: "0px 0px -40px 0px"
+    };
 
-/* ==========================================================================
-   ANIMATE SKILLS ON VIEWPORT ENTRY
-   ========================================================================== */
-function setupSkillsAnimation() {
-    const skillsSection = document.getElementById('skills');
-    const progressBars = document.querySelectorAll('.skill-progress');
-    
-    if (!skillsSection || progressBars.length === 0) return;
-    
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                progressBars.forEach(bar => {
-                    // Read custom width from element style and apply it for transition
-                    const width = bar.style.width;
-                    bar.style.width = '0';
-                    setTimeout(() => {
-                        bar.style.transition = 'width 1.5s cubic-bezier(0.1, 0.76, 0.55, 0.94)';
-                        bar.style.width = width;
-                    }, 100);
-                });
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.15 });
-    
-    observer.observe(skillsSection);
-}
+    }, observerOptions);
 
-/* ==========================================================================
-   DOCUMENT READY INITIALIZATION
-   ========================================================================== */
-document.addEventListener('DOMContentLoaded', () => {
-    // Start particles network
-    new ParticleNetwork('particles-canvas');
+    glassCards.forEach(card => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        card.style.transition = "opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)";
+        revealObserver.observe(card);
+    });
+
+    // 4. Sliding Navbar Indicator Pill
+    const navLinksList = document.querySelectorAll(".nav-link");
+    const indicator = document.querySelector(".nav-indicator-pill");
+    const sections = document.querySelectorAll("section");
+    let activeNavLink = null;
+
+    function moveIndicator(link) {
+        if (!indicator || !link) return;
+        indicator.style.left = `${link.offsetLeft}px`;
+        indicator.style.width = `${link.offsetWidth}px`;
+        indicator.style.height = `${link.offsetHeight}px`;
+        indicator.style.top = `${link.offsetTop}px`;
+    }
+
+    function setActiveLink(link) {
+        if (!link || link === activeNavLink) return;
+        
+        if (activeNavLink) {
+            activeNavLink.classList.remove("active");
+        }
+        
+        link.classList.add("active");
+        activeNavLink = link;
+        moveIndicator(link);
+    }
+
+    // Determine initial active link based on current scroll position
+    let initialSectionId = "hero";
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= (sectionTop - 250)) {
+            initialSectionId = section.getAttribute("id");
+        }
+    });
     
-    // Initialize navigation helpers
-    setupNavigation();
-    
-    // Set up scroll reveal animations for skills progress bars
-    setupSkillsAnimation();
-    
-    // Simple console credit
-    console.log('%cDesigned & Coded with ❤️ for Rushank', 'color: #00f2fe; font-size: 16px; font-weight: bold;');
+    const initialLink = document.querySelector(`.nav-link[href="#${initialSectionId}"]`) || document.querySelector(".nav-link");
+    if (initialLink) {
+        initialLink.classList.add("active");
+        activeNavLink = initialLink;
+    }
+
+    // 5. Scroll-Progressive Timeline Pipeline Fill
+    const timeline = document.querySelector(".glass-timeline");
+    const progressLine = document.querySelector(".timeline-progress-line");
+    const dots = document.querySelectorAll(".node-dot");
+
+    function updateTimelineProgress() {
+        if (!timeline || !progressLine) return;
+        const rect = timeline.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        
+        // Point where neon line starts filling (when top of card enters screen at 80% height)
+        const startPoint = viewportHeight * 0.8;
+        // Point where neon line reaches 100% full (when top of card passes 20% height)
+        const endPoint = viewportHeight * 0.2;
+        const totalDist = startPoint - endPoint;
+        const currentDist = startPoint - rect.top;
+        
+        let percent = (currentDist / totalDist) * 100;
+        percent = Math.max(0, Math.min(100, percent));
+        
+        // Update height of the progress line element
+        progressLine.style.height = `${percent}%`;
+        
+        // Light up each dot as the progress line flows past it
+        dots.forEach(dot => {
+            const dotTop = dot.offsetTop;
+            const timelineHeight = timeline.clientHeight;
+            const progressHeight = (percent / 100) * timelineHeight;
+            
+            if (progressHeight >= (dotTop - 2)) {
+                dot.classList.add("active");
+            } else {
+                dot.classList.remove("active");
+            }
+        });
+    }
+
+    // Set initial position instantly with NO sliding transition, then fade in and enable sliding
+    window.addEventListener("load", () => {
+        updateTimelineProgress(); // Align timeline progress on initial load
+        
+        if (indicator && activeNavLink) {
+            moveIndicator(activeNavLink);
+            indicator.style.opacity = "1"; // Fade in cleanly
+            
+            // Enable sliding transitions after initial placement paint
+            setTimeout(() => {
+                indicator.classList.add("sliding");
+            }, 100);
+        }
+    });
+
+    // Handle custom web-font swaps which alter text widths post-load
+    if (document.fonts) {
+        document.fonts.ready.then(() => {
+            if (activeNavLink && indicator) {
+                indicator.classList.remove("sliding");
+                moveIndicator(activeNavLink);
+                setTimeout(() => {
+                    indicator.classList.add("sliding");
+                }, 50);
+            }
+        });
+    }
+
+    let isScrollingFromClick = false;
+    let scrollTimeout = null;
+
+    // Update active nav-link and timeline fill on scroll
+    window.addEventListener("scroll", () => {
+        updateTimelineProgress(); // Redraw neon pipeline as page scrolls
+        
+        if (isScrollingFromClick) return; // Ignore scroll updates when smooth scrolling from a navigation click
+        
+        let currentSectionId = "";
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (window.scrollY >= (sectionTop - 250)) {
+                currentSectionId = section.getAttribute("id");
+            }
+        });
+
+        if (currentSectionId) {
+            const targetLink = document.querySelector(`.nav-link[href="#${currentSectionId}"]`);
+            if (targetLink && targetLink !== activeNavLink) {
+                setActiveLink(targetLink);
+            }
+        }
+    });
+
+    // Update active nav-link on click and lock scroll-spy updates temporarily
+    navLinksList.forEach(link => {
+        link.addEventListener("click", () => {
+            isScrollingFromClick = true;
+            setActiveLink(link);
+            
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+            
+            // Unlock scroll-spy once browser smooth scroll animation finishes (approx 800ms)
+            scrollTimeout = setTimeout(() => {
+                isScrollingFromClick = false;
+            }, 800);
+        });
+    });
+
+    // Align indicator positions transition-free during resizing events to prevent visual lag
+    window.addEventListener("resize", () => {
+        updateTimelineProgress();
+        if (activeNavLink && indicator) {
+            indicator.classList.remove("sliding");
+            moveIndicator(activeNavLink);
+            setTimeout(() => {
+                indicator.classList.add("sliding");
+            }, 50);
+        }
+    });
 });
