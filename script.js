@@ -257,9 +257,36 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Logo click: scroll to absolute top and set active link to Home
+    const logo = document.querySelector(".nav-logo");
+    if (logo) {
+        logo.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+            const homeLink = document.querySelector('.nav-link[href="#hero"]');
+            if (homeLink) {
+                setActiveLink(homeLink);
+            }
+        });
+    }
+
     // Update active nav-link on click and lock scroll-spy updates temporarily
     navLinksList.forEach(link => {
-        link.addEventListener("click", () => {
+        link.addEventListener("click", (e) => {
+            const href = link.getAttribute("href");
+            
+            // Intercept Home link clicks to scroll to absolute top (scrollTop = 0)
+            if (href === "#hero") {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+            
             isScrollingFromClick = true;
             setActiveLink(link);
             
