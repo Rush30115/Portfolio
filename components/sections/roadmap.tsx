@@ -88,7 +88,49 @@ const TimelineNode = ({ item, isEven }: { item: RoadmapItem, isEven: boolean }) 
     return (
         <div className={cn("relative flex items-center justify-between w-full", isEven ? "flex-row" : "flex-row-reverse")}>
 
-            <div className="w-[calc(50%-3rem)] hidden md:block" />
+            {/* Opposite side division: either empty placeholder or parallel item (e.g. AIoT Hub Internship) */}
+            {item.parallel ? (
+                <div className="w-full md:w-[calc(50%-3rem)] pl-16 md:pl-0 relative group mb-6 md:mb-0">
+                    <BlurReveal>
+                        <div className={cn(
+                            "relative p-6 md:p-8 rounded-2xl border border-primary/40 bg-primary/5 backdrop-blur-md overflow-hidden transition-all duration-700 ease-out",
+                            "hover:bg-primary/10 hover:border-primary hover:shadow-2xl",
+                            isEven ? "md:text-left" : "md:text-right"
+                        )}>
+                            <div className={cn("flex items-center gap-2 mb-2", isEven ? "md:justify-start" : "md:justify-end")}>
+                                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-widest bg-primary/20 text-primary border border-primary/30">
+                                    Current Experience
+                                </span>
+                            </div>
+
+                            <div className="flex flex-col gap-2 relative z-10">
+                                <h4 className="text-xl md:text-2xl font-black tracking-tight text-foreground uppercase">
+                                    {item.parallel.title}
+                                </h4>
+                                <span className="text-xs font-mono tracking-wider text-primary font-semibold">
+                                    {item.parallel.subtitle}
+                                </span>
+                                <p className="text-muted-foreground text-xs md:text-sm leading-relaxed mt-1">
+                                    {item.parallel.description}
+                                </p>
+
+                                <div className={cn("flex flex-wrap gap-1.5 mt-4", isEven ? "md:justify-start" : "md:justify-end")}>
+                                    {item.parallel.stack.map((tag: string) => (
+                                        <span
+                                            key={tag}
+                                            className="text-[10px] uppercase tracking-wider text-foreground/80 font-medium px-2.5 py-0.5 rounded-full border border-primary/20 bg-background/60 shadow-xs"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </BlurReveal>
+                </div>
+            ) : (
+                <div className="w-[calc(50%-3rem)] hidden md:block" />
+            )}
 
             <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full border border-border/50 bg-background z-20 flex items-center justify-center shadow-lg group-hover:border-primary/50 transition-colors duration-500">
                 <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-primary shadow-[0_0_10px_rgba(var(--primary),0.8)]" />

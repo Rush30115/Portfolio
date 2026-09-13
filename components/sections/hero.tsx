@@ -9,21 +9,15 @@ import { ContactModal } from "@/components/modals/contact-modal";
 import { InteractiveParticles } from "@/components/effects/interactive-particles";
 
 const TRACK_1 = [
-    "/hero-slider/makise-kurisu-2.webp",
-    "/hero-slider/atam-1.webp",
-    "/hero-slider/kintaro-2.webp",
-    "/hero-slider/makise-kurisu-1.webp",
-    "/hero-slider/atam-2.webp",
-    "/hero-slider/kintaro-1.webp",
+    "/hero-slider/rushank-1.jpeg",
+    "/hero-slider/rushank-2.jpeg",
+    "/hero-slider/rushank-3.jpeg",
 ] as const;
 
 const TRACK_2 = [
-    "/hero-slider/kintaro-1.webp",
-    "/hero-slider/atam-2.webp",
-    "/hero-slider/makise-kurisu-1.webp",
-    "/hero-slider/kintaro-2.webp",
-    "/hero-slider/atam-1.webp",
-    "/hero-slider/makise-kurisu-2.webp",
+    "/hero-slider/rushank-new-4.jpeg",
+    "/hero-slider/rushank-5.jpeg",
+    "/hero-slider/rushank-6.jpeg",
 ] as const;
 
 const COL_1_IMAGES = [...TRACK_1, ...TRACK_1];
@@ -148,7 +142,7 @@ export default function Hero() {
                 <div className="w-full mt-auto flex flex-col justify-center relative z-20 mix-blend-difference">
                     <div className="overflow-hidden">
                         <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl 3xl:text-[140px] font-black tracking-tighter leading-[0.85] text-foreground uppercase whitespace-nowrap">
-                            Kintaro
+                            Rushank
                             <br />
                             <span className="text-foreground/80">
                                 Portfolio

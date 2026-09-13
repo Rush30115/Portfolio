@@ -1,60 +1,65 @@
 {
     "about": {
-        "intro": "I'm a *Full Stack Developer* focused on building **clean and sustainable systems**.",
-        "description": "I'm someone who loves **learning new things** and constantly tries to put what I learn into practice. I develop *web* and *desktop* applications. I enjoy working with simple, **practical**, and **sustainable** tools.",
-        "full": "Hi, I'm **Kintaro**; my real name is **Mustafa**. I have been actively involved in software development for the past few years, mostly self-taught through my own projects and experiments.\n\nI mainly work on web development, using technologies like *React*, *Next.js*, *Laravel*, *TailwindCSS*, *PostgreSQL*, and *MySQL*. Along with these, I develop desktop applications with *WinForms*, *C#*, and *Rust*, as well as various projects utilizing tools like *FFmpeg* and *yt-dlp*.\n\nWhenever I see a new technology or tool, I usually start experimenting with it; I love learning, which constantly draws me to different areas.\n\nI pay great attention to making my projects as **clean, understandable, and sustainable** as possible. I'm a bit **obsessive** about this; sometimes I make things harder for myself even when I know it's unnecessary.\n\nMy current goal is to specialize in **backend and system design** and make my projects more professional. In addition to this, I want to build my own systems, libraries, and simple, practical tools."
+        "intro": "Engineering **Silicon** & Software — *Electronics & Communication Engineer*.",
+        "description": "Mastering digital logic, CMOS fundamentals, and netlist-to-GDSII ASIC flows. I design high-performance physical chip layouts, program ESP32 firmware, and develop backend systems to connect the physical and digital domains.",
+        "full": "Hi, I'm **Rushank**. I am an Electronics & Communication Engineering (ECE) student specializing in hardware optimization and embedded systems.\n\nGrounded in digital logic design, CMOS fundamentals, and hardware description concepts, I study EDA tools and microcontroller architectures. Currently in my 4th Semester (Expected graduation 2028) at VTU (BLDEA’s V.P. Dr. P.G.H. College of Engineering & Technology).\n\nAlongside semiconductor engineering, I bridge physical hardware structures with intelligent software architectures — programming ESP32/Arduino microcontrollers, developing high-performance Python/Django backends, and building interactive web interfaces with precision and reliable execution."
     },
     "manifesto": [
-        "RADICAL TRANSPARENCY",
-        "INTENTIONAL MINIMALISM",
-        "ARCHITECTURAL INTEGRITY",
+        "DIGITAL LOGIC",
+        "CIRCUIT DESIGN",
+        "HARDWARE PRECISION",
         "FIRST PRINCIPLES THINKING",
-        "PERFORMANCE WITHOUT COMPROMISE",
-        "SCALABLE VISION"
+        "EMBEDDED RELIABILITY",
+        "FULL STACK COHESION"
     ],
     "projects": [
         {
             "id": "1",
-            "title": "Aether Media",
-            "category": "Media Tool",
+            "title": "Drowsiness Detection System",
+            "category": "Computer Vision & IoT",
             "year": "2026",
-            "description": "Aether Media is a media processing tool that allows users to batch convert, compress, resize, and rename media files (video, audio, image) quickly, securely, and easily.\n\nBuilt on the performance of Rust and the lightweight nature of Tauri. Using the power of FFmpeg in the background, it offers complex media operations with a modern interface. Your files are never uploaded to a server; all processes take place entirely locally on your own device.",
-            "image": "/projects/20260427093247885.jpg",
-            "repo": "https://github.com/xkintaro/aether-media",
+            "description": "Developed a safety-focused hardware-software prototype on an RC Car platform to prevent driver fatigue incidents.\n\nDeployed Hugging Face vision models on a Python backend with real-time video stream processing. Integrated immediate physical alerting mechanisms (buzzer and motor cut-off ignition switch) via Arduino microcontroller over serial communication.",
+            "image": "",
+            "repo": "https://github.com/Rush30115",
             "stack": [
-                "FFmpeg",
-                "Rust",
-                "Tauri",
-                "React",
-                "TailwindCSS"
+                "Python",
+                "Arduino",
+                "Hugging Face",
+                "OpenCV",
+                "IoT"
             ]
         },
         {
             "id": "2",
-            "title": "Aether JS",
-            "category": "Library",
+            "title": "Autonomous Maze-Solving Robot",
+            "category": "Robotics & Embedded C++",
             "year": "2026",
-            "description": "Aether JS is a headless, utility-first JavaScript interaction controller designed for modern web development. It enables you to build fully accessible (a11y) UIs—like modals, tabs, and accordions—using only HTML data-aether-* attributes, without writing complex JavaScript. Perfectly suited for TailwindCSS and similar frameworks, it focuses on state management while leaving the styling entirely to you. Features include focus trapping, dynamic DOM observation, URL syncing, and theme management.",
-            "image": "/projects/20260427093247620.jpg",
-            "demo": "https://xkintaro.github.io/aether-js-documentation/en.html",
-            "repo": "https://github.com/xkintaro/aether-js",
+            "description": "Assembled and programmed a fully functional autonomous maze-solving robot in a strict 12-hour build fest.\n\nDesigned path-detection infrared (IR) sensor arrays and coded maze navigation logic with a tuned PID control loop in C++ on an Arduino platform for fast, real-time error correction and cornering.",
+            "image": "",
+            "repo": "https://github.com/Rush30115",
             "stack": [
-                "JavaScript"
+                "C++",
+                "Arduino",
+                "PID Control",
+                "IR Sensors",
+                "Robotics"
             ]
         },
         {
             "id": "3",
-            "title": "File Manager",
-            "category": "Web Application",
-            "year": "2025",
-            "description": "File Manager is a self-hosted file management application with a cyberpunk-inspired interface. It lets you upload, organize, tag, and filter any type of file through a sleek, modern web interface backed by SQLite — no external database required.\n\nAll files are stored locally on your machine — no cloud, no third-party servers. Upload your files, assign tags and keywords, and find them instantly with powerful filtering. The application automatically generates thumbnails for images and videos, giving you a visual overview of your entire archive.",
-            "image": "/projects/20260305210513749.jpg",
-            "repo": "https://github.com/xkintaro/file-manager",
+            "title": "Reliable ESP32 Data Logger & OTA",
+            "category": "Industrial IoT & Embedded Systems",
+            "year": "2026",
+            "description": "An industrial-grade, fault-tolerant ESP32 IoT telemetry platform engineered with ESP-IDF v5.4 and FreeRTOS dual-core task isolation.\n\nFeatures real-time microsecond bit-banging on Core 1, LittleFS circular store-and-forward flash buffer, Ubidots REST cloud telemetry with CRC-16 checksums, and a secure dual-partition (ping-pong) HTTPS Over-The-Air firmware upgrade engine with mbedTLS encryption and anti-rollback protection.",
+            "image": "",
+            "repo": "https://github.com/Rush30115/Reliable_ESP32_Data_Logger_with_OTA",
             "stack": [
-                "React",
-                "TailwindCSS",
-                "Node.js",
-                "SQLite"
+                "ESP-IDF v5.4",
+                "FreeRTOS",
+                "C",
+                "HTTPS OTA",
+                "LittleFS",
+                "Ubidots"
             ]
         }
     ],
@@ -62,53 +67,45 @@
         {
             "id": "01",
             "year": "2022",
-            "description": "I first got introduced to software development in high school. I learned the fundamentals and logic of programming using C# in an object-oriented programming class.",
+            "description": "Completed Secondary School (Class X) under CBSE Curriculum at Kendriya Vidyalaya, Vijayapura with 82.5%, building strong analytical foundations in science and mathematics.",
             "stack": [
-                "C#"
+                "Mathematics",
+                "Physics",
+                "Foundations"
             ]
         },
         {
             "id": "02",
-            "year": "2023",
-            "description": "I started developing static and dynamic websites by learning HTML, CSS, and ASP.NET. During this period, I also learned how to use databases in my projects.",
+            "year": "2024",
+            "description": "Completed Pre-University Course (PUC - PCM) at JSS Pre-University College, Mysuru with a 90% score, sharpening calculus, physics, and computational thinking.",
             "stack": [
-                "HTML",
-                "CSS",
-                "ASP.NET",
-                "MySQL"
+                "Calculus",
+                "Electromagnetism",
+                "Logic"
             ]
         },
         {
             "id": "03",
-            "year": "2024",
-            "description": "It was my last year of high school. I significantly improved my UI development skills with CSS and continued working with ASP.NET at my internship.",
+            "year": "2024 - 2028",
+            "description": "Pursuing Bachelor of Engineering (B.E.) in Electronics & Communication Engineering at BLDEA's V.P. Dr. P.G.H. CET, VTU. Focusing on Digital System Design, Microcontrollers (ESP32/Arduino), and C/C++ embedded programming.",
             "stack": [
-                "HTML",
-                "CSS",
-                "ASP.NET",
-                "MySQL"
-            ]
-        },
-        {
-            "id": "04",
-            "year": "2025",
-            "description": "After high school, I turned to modern technologies like React, Node.js, Tailwind CSS, and MongoDB. During this period, I developed many websites and applications. Additionally, I started writing various tools in Python for my personal use.",
-            "stack": [
-                "React",
-                "Node.js",
-                "TailwindCSS",
-                "MongoDB"
-            ]
-        },
-        {
-            "id": "05",
-            "year": "2026",
-            "description": "I started working as an intern at PostAjans, where I focused mainly on Laravel. In addition, I develop web projects using Next.js in my free time and build various personal projects utilizing technologies like Tauri and FFmpeg.",
-            "stack": [
-                "Laravel",
-                "Next.js",
-                "PostgreSQL"
-            ]
+                "C++",
+                "Digital Logic",
+                "Arduino",
+                "ESP32"
+            ],
+            "parallel": {
+                "title": "IoT Engineer Intern",
+                "subtitle": "AIoT Hub • Gujarat, India",
+                "description": "Currently engaged in industrial IoT hardware-software development, embedded firmware (ESP32/FreeRTOS), sensor interfacing, and cloud telemetry pipeline architectures.",
+                "stack": [
+                    "IoT",
+                    "ESP32",
+                    "Embedded C/C++",
+                    "Telemetry",
+                    "Firmware"
+                ]
+            }
         }
     ]
 }

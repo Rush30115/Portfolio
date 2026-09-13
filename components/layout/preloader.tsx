@@ -81,16 +81,16 @@ export function Preloader() {
                                 />
                             </motion.svg>
 
-                            <div className="absolute inset-3 rounded-full border border-border/50 bg-secondary/5 backdrop-blur-md" />
-
-                            <Image
-                                src="/logo.png"
-                                alt="Logo"
-                                width={56}
-                                height={56}
-                                className="object-contain z-10"
-                                priority
-                            />
+                            <div className="absolute inset-3 rounded-full border border-border/50 bg-secondary/10 backdrop-blur-md overflow-hidden flex items-center justify-center">
+                                <Image
+                                    src="/rushank-logo.png"
+                                    alt="Rushank Logo"
+                                    width={64}
+                                    height={64}
+                                    className="object-cover rounded-full z-10"
+                                    priority
+                                />
+                            </div>
                         </div>
 
                     </motion.div>

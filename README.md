@@ -1,20 +1,11 @@
-<a href="README.md">
-  <img src="https://img.shields.io/badge/Language-English-blue?style=flat-square&logo=google-translate&logoColor=white" alt="English">
-</a>
-<a href="README-TR.md">
-  <img src="https://img.shields.io/badge/Dil-Türkçe-red?style=flat-square&logo=google-translate&logoColor=white" alt="Türkçe">
-</a>
-
-  <br />
-  <br />
-
 <div align="center">
-  <img src="public/logo.png" width="120" height="120" />
+  <img src="public/rushank-logo.png" width="120" height="120" />
   <br />
   <br />
 
+  <h1>Rushank | ECE & Embedded Systems Portfolio</h1>
   <p>
-     A personal portfolio website inspired by the design quality of Awwwards.
+     Interactive Awwwards-style engineering portfolio showcasing embedded systems, IoT telemetry, and digital design projects.
   </p>
 
 ![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js)
@@ -24,70 +15,50 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
 
   <p>
+    <a href="#about">About</a> •
     <a href="#features">Features</a> •
     <a href="#tech">Technologies</a> •
-    <a href="#installation">Installation</a> •
-    <a href="#license">License</a>
+    <a href="#projects">Projects</a> •
+    <a href="#running-locally">Running Locally</a>
   </p>
-
-  <br />
-  <br />
 </div>
+
+---
 
 ## 📋 About
 
-**Kintarowwards** is an open-source, highly interactive personal portfolio template inspired by top-tier Awwwards-winning websites. It features smooth scrolling, physics-based micro-interactions, dynamic theme switching, and a fully multilingual system designed to deliver a premium user experience. Every detail is crafted to leave a lasting impression while maintaining high performance and clean code standards.
+Personal portfolio of **Rushank**, an Electronics & Communication Engineering (ECE) student at VTU (BLDEA's CET) and **IoT Engineer Intern at AIoT Hub, Gujarat**. Built with Next.js 16 (Turbopack), React 19, Framer Motion physics-based interactions, and Lenis smooth scrolling.
 
-## <a id="features"></a> ✨ Features
+## ✨ Features
 
-- **Advanced Animations**: Fluid transitions and micro-interactions with Framer Motion and Motion libraries.
-- **Physics-Based Components**: Dynamic and physics-compliant UI elements like "Hanging Profile" that respond to mouse movements.
-- **Smooth Scroll**: A modern and high-quality scrolling experience with Lenis integration.
-- **Dynamic Theme Support**: Optimized Dark and Light mode transitions with next-themes.
-- **Multi-language Support**: Extensible language options for global users.
-- **Responsive Design**: A mobile-first interface that looks perfect on all devices.
+- **Physics-Based Hanging Profile Widget**: Interactive swing physics with direct mouse drag controls.
+- **Dual-Track Hero Image Slider**: Seamless infinite scroll ticker presenting portrait photography.
+- **Smooth Scroll**: Native-feeling inertial scroll experience powered by Lenis.
+- **Dynamic Dark/Light Themes**: Accessible theme switcher with fluid contrast transitions.
+- **Featured Embedded & CV Projects**: Interactive modals with GitHub repositories and technical specifications.
 
-## <a id="technologies"></a> 🛠️ Technologies
+## 🛠️ Technologies
 
-- **Next.js**: The core React framework used for routing, server-side rendering, and performance optimization.
-- **Tailwind CSS**: Utility-first CSS framework for rapid and responsive UI styling.
-- **TypeScript**: Ensures type safety and provides a superior developer experience with clean architecture.
-- **Framer Motion**: Powers the complex, physics-based UI animations, transitions, and gesture interactions.
-- **Shadcn/UI**: Provides accessible, beautifully designed, and customizable core UI components.
-- **Lucide React**: A clean and consistent icon library used for UI navigation and actions.
-- **Lenis**: Delivers a silky-smooth, native-feeling scroll experience across all devices.
+- **Frontend / Framework**: Next.js 16 (Turbopack), React 19, TypeScript, Tailwind CSS v4, Framer Motion, Radix UI.
+- **Engineering Stack**: ESP-IDF v5.4, FreeRTOS, Embedded C/C++, Python, Django, Arduino, LittleFS, MQTT, OpenCV.
 
-## <a id="installation"></a> 🚀 Installation
+## 🚀 Running Locally
 
-Follow the steps below to run the project in your local environment:
+```bash
+# Install dependencies
+npm install
 
-1. **Clone the repository:**
+# Start development server
+npm run dev
 
-   ```bash
-   git clone https://github.com/xkintaro/kintarowwwards.git
-   cd kintarowwwards
-   ```
+# Build production bundle
+npm run build
+```
 
-2. **Install dependencies:**
+Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 
-   ```bash
-   npm install
-   ```
-
-3. **Start the Development Server:**
-
-   ```bash
-   npm run dev
-   ```
-
-You can view the project by visiting [http://localhost:3000](http://localhost:3000) in your browser.
-
-## 📄 License <a id="license"></a>
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-#
+---
 
 <p align="center">
-  <sub>❤️ Developed by "Mustafa TAŞAL" (kintaro)</sub>
+  <sub>© 2026 Rushank. All rights reserved.</sub>
 </p>

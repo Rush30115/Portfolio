@@ -2,7 +2,7 @@
 
 import { motion, useTransform, useScroll, useSpring } from "framer-motion";
 import React, { useRef, useState, useEffect } from "react";
-import Image from "next/image";
+import { ArrowUpRight, Code2 } from "lucide-react";
 import { useLanguage } from "@/providers/language-provider";
 import { useMediaQuery, BREAKPOINTS } from "@/hooks/use-media-query";
 import { BlurReveal } from "@/components/effects/blur-reveal";
@@ -193,40 +193,53 @@ const ProjectCard = React.memo(function ProjectCard({ project, onClick }: { proj
         <BlurReveal>
             <div
                 onClick={onClick}
-                className="group relative w-full xl:w-[45vw] aspect-4/3 shrink-0 xl:mx-6 perspective-1000 cursor-pointer"
+                className="group relative w-full xl:w-[42vw] aspect-4/3 shrink-0 xl:mx-6 cursor-pointer select-none"
             >
-                <div className="relative w-full h-full overflow-hidden bg-muted border border-border/50 transition-all duration-700 ease-out group-hover:border-foreground/20">
-                    <div className="absolute inset-0 z-0">
-                        <Image
-                            src={project.image}
-                            alt={project.title}
-                            fill
-                            sizes="(max-width: 1280px) 100vw, 45vw"
-                            loading="lazy"
-                            className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 grayscale group-hover:grayscale-0"
-                        />
-                        <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-transparent" />
-                    </div>
+                <div className="relative w-full h-full overflow-hidden rounded-3xl bg-card/60 backdrop-blur-md border border-border/60 p-8 xl:p-12 flex flex-col justify-between transition-all duration-500 ease-out group-hover:border-foreground/40 group-hover:bg-card/90 group-hover:shadow-2xl">
+                    {/* Background subtle grid pattern */}
+                    <div className="absolute inset-0 bg-grid-white/[0.02] pointer-events-none" />
+                    <div className="absolute -top-24 -right-24 w-64 h-64 bg-foreground/[0.03] rounded-full blur-3xl pointer-events-none group-hover:bg-foreground/[0.08] transition-colors duration-700" />
 
-                    <div className="absolute inset-0 z-10 flex flex-col justify-between p-6 xl:p-12">
-                        <div className="flex justify-between items-start">
-                            <div className="overflow-hidden">
-                                <span className="block text-xs xl:text-sm font-mono tracking-widest text-muted-foreground uppercase transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-100">
-                                    {project.category}
-                                </span>
-                            </div>
-                            <div className="overflow-hidden">
-                                <span className="block text-xs xl:text-sm font-mono text-muted-foreground transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-200">
-                                    {project.year}
-                                </span>
-                            </div>
+                    {/* Top row: Category, Year, and External indicator icon */}
+                    <div className="relative z-10 flex justify-between items-start">
+                        <div className="flex flex-col gap-1">
+                            <span className="text-xs xl:text-sm font-mono tracking-widest text-muted-foreground uppercase">
+                                {project.category}
+                            </span>
+                            <span className="text-[11px] font-mono text-muted-foreground/60">
+                                {project.year}
+                            </span>
                         </div>
 
-                        <h3 className="absolute bottom-6 md:bottom-8 2xl:bottom-12 left-6 md:left-8 2xl:left-12 text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black tracking-tighter uppercase text-foreground opacity-10 group-hover:opacity-100 transition-opacity duration-500 delay-100 pointer-events-none">
-                            {project.title}
-                        </h3>
+                        <div className="w-10 h-10 rounded-full border border-border/70 flex items-center justify-center text-muted-foreground group-hover:text-foreground group-hover:border-foreground/50 group-hover:scale-110 transition-all duration-300">
+                            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        </div>
                     </div>
 
+                    {/* Middle / Bottom: Tech stack pills & Big Title */}
+                    <div className="relative z-10 flex flex-col gap-6">
+                        {project.stack && project.stack.length > 0 && (
+                            <div className="flex flex-wrap gap-2">
+                                {project.stack.slice(0, 4).map((tech) => (
+                                    <span
+                                        key={tech}
+                                        className="text-[11px] font-mono uppercase tracking-wider px-3 py-1 rounded-full border border-border/50 bg-secondary/30 text-muted-foreground"
+                                    >
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
+
+                        <div className="space-y-2">
+                            <h3 className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-black tracking-tighter uppercase text-foreground leading-[0.95] group-hover:text-foreground/90 transition-colors">
+                                {project.title}
+                            </h3>
+                            <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 leading-relaxed font-light">
+                                {project.description}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </BlurReveal>

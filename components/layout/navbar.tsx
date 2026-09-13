@@ -153,7 +153,7 @@ export default function Navbar() {
           className="relative z-110 flex items-center gap-2 group"
         >
           <span className="text-xl sm:text-2xl font-black tracking-tighter uppercase text-foreground transition-all duration-300 group-hover:opacity-70">
-            kintaro
+            rushank
           </span>
         </Link>
 
@@ -174,7 +174,6 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center gap-3">
-            <LanguageSwitcher />
             <ThemeSwitcher />
           </div>
         </div>
@@ -235,7 +234,6 @@ export default function Navbar() {
                 className="mt-8 flex items-center justify-between"
               >
                 <div className="flex items-center gap-4">
-                  <LanguageSwitcher />
                   <ThemeSwitcher />
                 </div>
               </motion.div>

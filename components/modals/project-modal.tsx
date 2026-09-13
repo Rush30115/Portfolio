@@ -9,7 +9,6 @@ import {
 import { useLenisModal } from "@/hooks/use-lenis-modal";
 import { useLanguage } from "@/providers/language-provider";
 import { Github, ExternalLink } from "lucide-react";
-import Image from "next/image";
 import type { ProjectItem } from "@/types/project";
 import { ShineButton } from "@/components/ui/shine-button";
 
@@ -40,29 +39,16 @@ export function ProjectModal({ open, onOpenChange, project }: ProjectModalProps)
 
                 <div className="overflow-y-auto w-full h-full flex-1" data-lenis-prevent="true">
 
-                    <div className="relative w-full h-[40vh] sm:h-[50vh] shrink-0">
-                        {project.image && (
-                            <Image
-                                src={project.image}
-                                alt={project.title}
-                                fill
-                                className="object-cover rounded-lg"
-                                priority
-                            />
-                        )}
-                        <div className="absolute inset-0 bg-linear-to-t from-background to-transparent" />
-
-                        <div className="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-                            <div>
-                                <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tighter text-foreground mb-2">
-                                    {project.title}
-                                </h2>
-                                <div className="flex items-center gap-3 text-sm font-mono tracking-widest text-muted-foreground uppercase">
-                                    <span>{project.category}</span>
-                                    <span className="w-1 h-1 rounded-full bg-border" />
-                                    <span>{project.year}</span>
-                                </div>
+                    <div className="relative w-full p-8 sm:p-12 border-b border-border/50 bg-linear-to-b from-card to-background shrink-0">
+                        <div className="flex flex-col gap-3">
+                            <div className="flex items-center gap-3 text-xs sm:text-sm font-mono tracking-widest text-muted-foreground uppercase">
+                                <span className="px-3 py-1 rounded-full border border-border/70 bg-secondary/30">{project.category}</span>
+                                <span className="w-1 h-1 rounded-full bg-border" />
+                                <span>{project.year}</span>
                             </div>
+                            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tighter text-foreground">
+                                {project.title}
+                            </h2>
                         </div>
                     </div>
 

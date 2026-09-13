@@ -15,12 +15,20 @@ const syne = Syne({ subsets: ["latin"], variable: "--font-syne" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Kintarowwwards",
-  description: "Creative Developer Portfolio",
+  title: "Rushank | ECE & VLSI Design Portfolio",
+  description: "Electronics & Communication Engineering, VLSI Physical Design, and Embedded Systems Portfolio of Rushank.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" }
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/icon.png"
+  }
 };
 
 export function generateStaticParams() {
-  return [{ lang: 'en' }, { lang: 'tr' }];
+  return [{ lang: 'en' }];
 }
 
 export default async function LangLayout({
