@@ -14,16 +14,18 @@ import { getDictionary, getContents, getSharedData } from "@/lib/loaders";
 const syne = Syne({ subsets: ["latin"], variable: "--font-syne" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
+const basePath = process.env.NODE_ENV === "production" ? "/Portfolio" : "";
+
 export const metadata: Metadata = {
   title: "Rushank | ECE & VLSI Design Portfolio",
   description: "Electronics & Communication Engineering, VLSI Physical Design, and Embedded Systems Portfolio of Rushank.",
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.png", type: "image/png" }
+      { url: `${basePath}/favicon.ico` },
+      { url: `${basePath}/icon.png`, type: "image/png" }
     ],
-    shortcut: "/favicon.ico",
-    apple: "/icon.png"
+    shortcut: `${basePath}/favicon.ico`,
+    apple: `${basePath}/icon.png`
   }
 };
 

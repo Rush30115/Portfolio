@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/assets";
 
 export function Preloader() {
     const [isLoading, setIsLoading] = useState(true);
@@ -83,7 +84,7 @@ export function Preloader() {
 
                             <div className="absolute inset-3 rounded-full border border-border/50 bg-secondary/10 backdrop-blur-md overflow-hidden flex items-center justify-center">
                                 <Image
-                                    src="/rushank-logo.png"
+                                    src={getAssetPath("/rushank-logo.png")}
                                     alt="Rushank Logo"
                                     width={64}
                                     height={64}

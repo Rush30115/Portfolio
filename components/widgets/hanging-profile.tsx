@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/assets";
 
 export function HangingProfile() {
   const boxRef = useRef<HTMLDivElement>(null);
@@ -168,7 +169,7 @@ export function HangingProfile() {
       >
         <div className="w-20 h-20 rounded-full overflow-hidden border border-foreground/20 mb-3 bg-foreground/5 relative pointer-events-none group-hover:border-foreground/40 transition-colors duration-300">
           <Image
-            src="/rushank.jpeg"
+            src={getAssetPath("/rushank.jpeg")}
             alt="Rushank"
             fill
             className="object-cover object-center"

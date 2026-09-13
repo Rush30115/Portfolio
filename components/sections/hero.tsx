@@ -7,18 +7,19 @@ import { useLanguage } from "@/providers/language-provider";
 import { ArrowRight, Mouse } from "lucide-react";
 import { ContactModal } from "@/components/modals/contact-modal";
 import { InteractiveParticles } from "@/components/effects/interactive-particles";
+import { getAssetPath } from "@/lib/assets";
 
 const TRACK_1 = [
-    "/hero-slider/rushank-1.jpeg",
-    "/hero-slider/rushank-2.jpeg",
-    "/hero-slider/rushank-3.jpeg",
-] as const;
+    getAssetPath("/hero-slider/rushank-1.jpeg"),
+    getAssetPath("/hero-slider/rushank-2.jpeg"),
+    getAssetPath("/hero-slider/rushank-3.jpeg"),
+];
 
 const TRACK_2 = [
-    "/hero-slider/rushank-new-4.jpeg",
-    "/hero-slider/rushank-5.jpeg",
-    "/hero-slider/rushank-6.jpeg",
-] as const;
+    getAssetPath("/hero-slider/rushank-new-4.jpeg"),
+    getAssetPath("/hero-slider/rushank-5.jpeg"),
+    getAssetPath("/hero-slider/rushank-6.jpeg"),
+];
 
 const COL_1_IMAGES = [...TRACK_1, ...TRACK_1];
 const COL_2_IMAGES = [...TRACK_2, ...TRACK_2];
