@@ -5,8 +5,10 @@ export type StackItem = {
 };
 
 export type StackCategories = {
-    frontend: StackItem[];
-    backend: StackItem[];
-    database: StackItem[];
-    tools: StackItem[];
+    embedded?: StackItem[];
+    protocols?: StackItem[];
+    languages?: StackItem[];
+    tools?: StackItem[];
+    lab?: StackItem[];
+    [key: string]: StackItem[] | undefined;
 };

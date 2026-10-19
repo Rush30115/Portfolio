@@ -17,8 +17,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const basePath = process.env.NODE_ENV === "production" ? "/Portfolio" : "";
 
 export const metadata: Metadata = {
-  title: "Rushank | ECE & VLSI Design Portfolio",
-  description: "Electronics & Communication Engineering, VLSI Physical Design, and Embedded Systems Portfolio of Rushank.",
+  title: "Rushank's Portfolio | Embedded Systems & IoT",
+  description: "Embedded Systems, IoT Firmware, and PCB Design Portfolio of Rushank.",
   icons: {
     icon: [
       { url: `${basePath}/favicon.ico` },

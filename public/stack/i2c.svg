@@ -1,0 +1,9 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8" y="12" width="84" height="76" rx="16" fill="#0F172A" stroke="#A855F7" stroke-width="2.5"/>
+  <text x="16" y="38" fill="#A855F7" font-family="monospace" font-weight="bold" font-size="12">SDA</text>
+  <path d="M44 34h36" stroke="#A855F7" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="60" cy="34" r="4" fill="#C084FC"/>
+  <text x="16" y="68" fill="#38BDF8" font-family="monospace" font-weight="bold" font-size="12">SCL</text>
+  <path d="M44 64h36" stroke="#38BDF8" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="60" cy="64" r="4" fill="#7DD3FC"/>
+</svg>

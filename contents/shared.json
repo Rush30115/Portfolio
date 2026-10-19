@@ -19,10 +19,86 @@
         }
     ],
     "stack": {
-        "frontend": [
+        "embedded": [
+            {
+                "name": "ESP32",
+                "icon": "/stack/esp32.svg",
+                "featured": true
+            },
+            {
+                "name": "ESP-IDF",
+                "icon": "/stack/espidf.svg",
+                "featured": true
+            },
+            {
+                "name": "FreeRTOS",
+                "icon": "/stack/freertos.svg",
+                "featured": true
+            },
+            {
+                "name": "Arduino (AVR)",
+                "icon": "/stack/arduino.svg",
+                "featured": true
+            },
+            {
+                "name": "BLE",
+                "icon": "/stack/bluetooth.svg",
+                "featured": true
+            },
+            {
+                "name": "Sensor Interfacing",
+                "icon": "/stack/sensors.svg",
+                "featured": true
+            },
+            {
+                "name": "PCB Design",
+                "icon": "/stack/pcb.svg",
+                "featured": true
+            },
+            {
+                "name": "Hardware Debugging",
+                "icon": "/stack/debugging.svg"
+            }
+        ],
+        "protocols": [
+            {
+                "name": "UART",
+                "icon": "/stack/uart.svg",
+                "featured": true
+            },
+            {
+                "name": "I2C",
+                "icon": "/stack/i2c.svg",
+                "featured": true
+            },
+            {
+                "name": "SPI",
+                "icon": "/stack/spi.svg",
+                "featured": true
+            },
+            {
+                "name": "TCP/IP",
+                "icon": "/stack/tcpip.svg"
+            },
+            {
+                "name": "MQTT",
+                "icon": "/stack/mqtt.svg",
+                "featured": true
+            },
+            {
+                "name": "Modbus",
+                "icon": "/stack/modbus.svg"
+            }
+        ],
+        "languages": [
+            {
+                "name": "C",
+                "icon": "/stack/c.svg",
+                "featured": true
+            },
             {
                 "name": "C++",
-                "icon": "/stack/csharp.svg",
+                "icon": "/stack/cplusplus.svg",
                 "featured": true
             },
             {
@@ -31,97 +107,86 @@
                 "featured": true
             },
             {
-                "name": "React",
-                "icon": "/stack/react.svg",
-                "featured": true
-            },
-            {
-                "name": "Next.js",
-                "icon": "/stack/nextjs.svg",
-                "featured": true
-            },
-            {
-                "name": "Tailwind CSS",
-                "icon": "/stack/tailwindcss.svg",
-                "featured": true
-            },
-            {
                 "name": "JavaScript",
-                "icon": "/stack/javascript.svg"
-            },
-            {
-                "name": "HTML5 / CSS3",
-                "icon": "/stack/html5.svg"
-            }
-        ],
-        "backend": [
-            {
-                "name": "Django",
-                "icon": "/stack/python.svg",
-                "featured": true
-            },
-            {
-                "name": "Flask",
-                "icon": "/stack/python.svg",
-                "featured": true
-            },
-            {
-                "name": "REST APIs",
-                "icon": "/stack/nodejs.svg",
+                "icon": "/stack/javascript.svg",
                 "featured": true
             },
             {
                 "name": "Node.js",
                 "icon": "/stack/nodejs.svg"
-            },
-            {
-                "name": "C Language",
-                "icon": "/stack/csharp.svg"
-            }
-        ],
-        "database": [
-            {
-                "name": "PostgreSQL",
-                "icon": "/stack/postgresql.svg",
-                "featured": true
-            },
-            {
-                "name": "MySQL",
-                "icon": "/stack/mysql.svg",
-                "featured": true
-            },
-            {
-                "name": "SQLite",
-                "icon": "/stack/prisma.svg"
-            },
-            {
-                "name": "MongoDB",
-                "icon": "/stack/mongodb.svg"
             }
         ],
         "tools": [
             {
-                "name": "ESP32 & Arduino",
-                "icon": "/stack/rust.svg",
+                "name": "KiCad",
+                "icon": "/stack/kicad.svg",
                 "featured": true
             },
             {
-                "name": "Verilog (Xilinx)",
-                "icon": "/stack/tauri.svg",
+                "name": "DesignSpark PCB",
+                "icon": "/stack/designspark.svg"
+            },
+            {
+                "name": "Linux",
+                "icon": "/stack/linux.svg",
                 "featured": true
             },
             {
-                "name": "PCB (DesignSpark)",
-                "icon": "/stack/neon.png",
+                "name": "Git",
+                "icon": "/stack/git.svg",
                 "featured": true
             },
             {
-                "name": "Wokwi & Blynk IoT",
-                "icon": "/stack/vercel.svg"
+                "name": "Wokwi",
+                "icon": "/stack/wokwi.svg",
+                "featured": true
             },
             {
-                "name": "Git & GitHub",
-                "icon": "/stack/git.svg"
+                "name": "Blynk IoT",
+                "icon": "/stack/blynk.svg"
+            },
+            {
+                "name": "ThingSpeak",
+                "icon": "/stack/thingspeak.svg"
+            },
+            {
+                "name": "Flask",
+                "icon": "/stack/flask.svg"
+            },
+            {
+                "name": "Django",
+                "icon": "/stack/django.svg"
+            },
+            {
+                "name": "Hugging Face",
+                "icon": "/stack/huggingface.svg",
+                "featured": true
+            }
+        ],
+        "lab": [
+            {
+                "name": "Multimeter",
+                "icon": "/stack/multimeter.svg",
+                "featured": true
+            },
+            {
+                "name": "PID Control",
+                "icon": "/stack/pid.svg",
+                "featured": true
+            },
+            {
+                "name": "Root-Cause Analysis",
+                "icon": "/stack/debugging.svg"
+            },
+            {
+                "name": "Rapid Prototyping",
+                "icon": "/stack/prototyping.svg",
+                "featured": true
+            },
+            {
+                "name": "Edge AI",
+                "icon": "/stack/edgeai.svg",
+                "featured": true
             }
         ]
     }
