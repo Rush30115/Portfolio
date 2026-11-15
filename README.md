@@ -32,7 +32,7 @@ Personal portfolio of **Rushank**, an Electronics & Communication Engineering (E
 ## ✨ Features
 
 - **Physics-Based Hanging Profile Widget**: Interactive swing physics with direct mouse drag controls.
-- **Dual-Track Hero Image Slider**: Seamless infinite scroll ticker presenting portrait photography.
+- **Single Hero Portrait**: A suit portrait with responsive sizing and scroll effects.
 - **Smooth Scroll**: Native-feeling inertial scroll experience powered by Lenis.
 - **Dynamic Dark/Light Themes**: Accessible theme switcher with fluid contrast transitions.
 - **Featured Embedded & CV Projects**: Interactive modals with GitHub repositories and technical specifications.

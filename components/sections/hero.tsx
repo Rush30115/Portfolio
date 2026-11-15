@@ -9,21 +9,6 @@ import { ContactModal } from "@/components/modals/contact-modal";
 import { InteractiveParticles } from "@/components/effects/interactive-particles";
 import { getAssetPath } from "@/lib/assets";
 
-const TRACK_1 = [
-    getAssetPath("/hero-slider/rushank-1.jpeg"),
-    getAssetPath("/hero-slider/rushank-2.jpeg"),
-    getAssetPath("/hero-slider/rushank-3.jpeg"),
-];
-
-const TRACK_2 = [
-    getAssetPath("/hero-slider/rushank-new-4.jpeg"),
-    getAssetPath("/hero-slider/rushank-5.jpeg"),
-    getAssetPath("/hero-slider/rushank-6.jpeg"),
-];
-
-const COL_1_IMAGES = [...TRACK_1, ...TRACK_1];
-const COL_2_IMAGES = [...TRACK_2, ...TRACK_2];
-
 export default function Hero() {
     const { content, dict } = useLanguage();
     const containerRef = useRef<HTMLDivElement>(null);
@@ -53,56 +38,17 @@ export default function Hero() {
 
             <motion.div
                 style={{ opacity }}
-                className="absolute top-0 right-6 sm:right-12 md:right-16 lg:right-24 xl:right-36 2xl:right-48 bottom-0 h-full w-55 sm:w-65 md:w-85 lg:w-100 xl:w-110 2xl:w-120 flex gap-3 sm:gap-4 px-2 overflow-hidden z-5 pointer-events-none select-none opacity-[0.22] dark:opacity-[0.28] mix-blend-luminosity"
+                className="absolute top-0 right-6 sm:right-12 md:right-16 lg:right-24 xl:right-36 2xl:right-48 bottom-0 h-full w-55 sm:w-65 md:w-85 lg:w-100 xl:w-110 2xl:w-120 flex items-center px-2 overflow-hidden z-5 pointer-events-none select-none mix-blend-luminosity"
             >
-                <div className="max-md:hidden flex-1 h-full overflow-hidden relative">
-                    <motion.div
-                        animate={{ y: ["0%", "-50%"] }}
-                        transition={{
-                            ease: "linear",
-                            duration: 32,
-                            repeat: Infinity
-                        }}
-                        className="flex flex-col gap-3 sm:gap-4 pt-4"
-                    >
-                        {COL_1_IMAGES.map((src, idx) => (
-                            <div key={idx} className="w-full aspect-3/4 relative overflow-hidden rounded-4xl border border-border/5">
-                                <Image
-                                    src={src}
-                                    alt="Portrait"
-                                    fill
-                                    sizes="(max-width: 768px) 0px, (max-width: 1280px) 20vw, 12vw"
-                                    priority
-                                    className="object-cover object-center grayscale contrast-[1.08] brightness-[0.8]"
-                                />
-                            </div>
-                        ))}
-                    </motion.div>
-                </div>
-
-                <div className="max-md:opacity-50 flex-1 h-full overflow-hidden relative">
-                    <motion.div
-                        animate={{ y: ["-50%", "0%"] }}
-                        transition={{
-                            ease: "linear",
-                            duration: 32,
-                            repeat: Infinity
-                        }}
-                        className="flex flex-col gap-3 sm:gap-4 pt-4"
-                    >
-                        {COL_2_IMAGES.map((src, idx) => (
-                            <div key={idx} className="w-full aspect-3/4 relative overflow-hidden rounded-4xl border border-border/5">
-                                <Image
-                                    src={src}
-                                    alt="Portrait"
-                                    fill
-                                    sizes="(max-width: 640px) 45vw, (max-width: 1280px) 20vw, 12vw"
-                                    priority
-                                    className="object-cover object-center grayscale contrast-[1.08] brightness-[0.8]"
-                                />
-                            </div>
-                        ))}
-                    </motion.div>
+                <div className="relative w-full aspect-3/4 overflow-hidden rounded-4xl border border-border/5 opacity-50 md:opacity-80">
+                    <Image
+                        src={getAssetPath("/rushank.jpeg")}
+                        alt="Rushank wearing a black suit"
+                        fill
+                        sizes="(max-width: 640px) 220px, (max-width: 768px) 260px, (max-width: 1024px) 340px, (max-width: 1280px) 400px, (max-width: 1536px) 440px, 480px"
+                        priority
+                        className="object-cover object-center grayscale contrast-[1.08] brightness-[0.8]"
+                    />
                 </div>
 
                 <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-background pointer-events-none z-10" />
